@@ -13,8 +13,13 @@ def plot_staff_timeline():
     print(f'Downloading data from {url}...')
 
     # Fetch the CSV data
-    response = requests.get(url)
-    response.raise_for_status()  # Check if the request was successful
+    try:
+        response = requests.get(url, timeout=10)
+    except requests.exceptions.Timeout:
+        print("The request timed out")
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
+    response.raise_for_status()
 
     # Read the CSV data into a DataFrame
     data = StringIO(response.text)

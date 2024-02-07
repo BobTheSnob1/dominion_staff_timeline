@@ -13,7 +13,12 @@ def plot_team_size_over_time():
     print(f'Downloading data from {url}...')
 
     # Fetch the CSV data
-    response = requests.get(url)
+    try:
+        response = requests.get(url, timeout=10)
+    except requests.exceptions.Timeout:
+        print("The request timed out")
+    except requests.exceptions.RequestException as e:
+        print(f"An error occurred: {e}")
     response.raise_for_status()
 
     # Read the CSV data into a DataFrame
