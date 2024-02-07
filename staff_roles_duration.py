@@ -46,7 +46,7 @@ def calculate_role_durations(df):
     return staff_roles_df
 
 
-def plot_staff_roles_duration(staff_roles_df):
+def make_plot(staff_roles_df):
     fig, ax = plt.subplots(figsize=(20, 10))
 
     role_colors = {
@@ -82,12 +82,16 @@ def plot_staff_roles_duration(staff_roles_df):
     plt.show()
 
 
-def main():
+def plot_staff_roles_duration():
     url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQodbH1DyWrvBdsGa_egy98PDxeLoMMu5yw8Bzb2tGUy2i3kE17e0NReWK1d75V9-eHGeiVjUa468dZ/pub?gid=945876828&single=true&output=csv'  # noqa: E501
     df = fetch_data(url)
     if df is not None:
         staff_roles_df = calculate_role_durations(df)
-        plot_staff_roles_duration(staff_roles_df)
+        make_plot(staff_roles_df)
+
+
+def main():
+    plot_staff_roles_duration()
 
 
 if __name__ == "__main__":
