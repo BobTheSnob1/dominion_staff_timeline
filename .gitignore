@@ -1,5 +1,7 @@
 *.png
 !timeline.png
+!duration.png
+!teamsize.png
 
 __pycache__
 .trunk

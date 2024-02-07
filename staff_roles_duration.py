@@ -81,14 +81,6 @@ def make_plot(staff_roles_df):
     ax.grid(axis='x')
     plt.show()
 
-
-def plot_staff_roles_duration():
-    url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQodbH1DyWrvBdsGa_egy98PDxeLoMMu5yw8Bzb2tGUy2i3kE17e0NReWK1d75V9-eHGeiVjUa468dZ/pub?gid=945876828&single=true&output=csv'  # noqa: E501
-    df = fetch_data(url)
-    if df is not None:
-        staff_roles_df = calculate_role_durations(df)
-        make_plot(staff_roles_df)
-
     final_path = input("What should the file name be?\nFile name: ")
     final_dpi = int(
         input("What should the dpi be? (Resolution is dpi*15 x dpi*10)\ndpi: ")
@@ -107,6 +99,14 @@ def plot_staff_roles_duration():
                     + "\ndpi: "
                 )
             )
+
+
+def plot_staff_roles_duration():
+    url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQodbH1DyWrvBdsGa_egy98PDxeLoMMu5yw8Bzb2tGUy2i3kE17e0NReWK1d75V9-eHGeiVjUa468dZ/pub?gid=945876828&single=true&output=csv'  # noqa: E501
+    df = fetch_data(url)
+    if df is not None:
+        staff_roles_df = calculate_role_durations(df)
+        make_plot(staff_roles_df)
 
 
 def main():

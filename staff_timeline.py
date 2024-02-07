@@ -132,11 +132,6 @@ def plot_staff_timeline():
                     color="black",
                 )
 
-    print(
-        " =================================================\n",
-        "   Processing complete!\n",
-        "=================================================",
-    )
     # Setting labels and title
     ax.set_xlabel("Date")
     ax.set_ylabel("Staff Members")
