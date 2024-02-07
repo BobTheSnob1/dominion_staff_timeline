@@ -1,2 +1,4 @@
 *.png
 !timeline.png
+
+__pycache__
