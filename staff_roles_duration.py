@@ -89,6 +89,25 @@ def plot_staff_roles_duration():
         staff_roles_df = calculate_role_durations(df)
         make_plot(staff_roles_df)
 
+    final_path = input("What should the file name be?\nFile name: ")
+    final_dpi = int(
+        input("What should the dpi be? (Resolution is dpi*15 x dpi*10)\ndpi: ")
+    )
+
+    while True:
+        try:
+            plt.savefig(final_path, dpi=final_dpi)
+            print(f"Timeline saved to '{final_path}'")
+            break
+        except (TypeError, ValueError):
+            print("This is not a valid number. Must be an integer.")
+            final_dpi = int(
+                input(
+                    "What should the dpi be? (Resolution is dpi*15 x dpi*10)"
+                    + "\ndpi: "
+                )
+            )
+
 
 def main():
     plot_staff_roles_duration()

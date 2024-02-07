@@ -150,6 +150,7 @@ def plot_staff_timeline():
 
     plt.xticks(rotation=45)
     plt.tight_layout()
+    plt.show()
 
     final_path = input("What should the file name be?\nFile name: ")
     final_dpi = int(
@@ -169,8 +170,6 @@ def plot_staff_timeline():
                     + "\ndpi: "
                 )
             )
-
-    plt.show()
 
 
 if __name__ == "__main__":

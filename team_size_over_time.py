@@ -69,6 +69,25 @@ def plot_team_size_over_time():
     plt.xlim(filtered_data.index.min(), filtered_data.index.max())
     plt.show()
 
+    final_path = input("What should the file name be?\nFile name: ")
+    final_dpi = int(
+        input("What should the dpi be? (Resolution is dpi*15 x dpi*10)\ndpi: ")
+    )
+
+    while True:
+        try:
+            plt.savefig(final_path, dpi=final_dpi)
+            print(f"Timeline saved to '{final_path}'")
+            break
+        except (TypeError, ValueError):
+            print("This is not a valid number. Must be an integer.")
+            final_dpi = int(
+                input(
+                    "What should the dpi be? (Resolution is dpi*15 x dpi*10)"
+                    + "\ndpi: "
+                )
+            )
+
 
 if __name__ == "__main__":
     plot_team_size_over_time()
