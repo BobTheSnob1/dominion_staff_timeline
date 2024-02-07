@@ -1,6 +1,3 @@
-import sys
-
-
 def main():
     print("Select the chart you want to generate:")
     print("1. Team Size Over Time by Role")
@@ -12,15 +9,15 @@ def main():
 
     if choice == '1':
         import team_size_over_time
-        team_size_over_time.plot_chart()
+        team_size_over_time.plot_team_size_over_time()
     elif choice == '2':
         import staff_roles_duration
-        staff_roles_duration.plot_chart()
+        staff_roles_duration.plot_staff_roles_duration()
     elif choice == '3':
         import staff_timeline
-        staff_timeline.plot_chart()
+        staff_timeline.plot_staff_timeline()
     elif choice == 'exit':
-        sys.exit()
+        return
     else:
         print("Invalid input. Please try again.")
         main()
